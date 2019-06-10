@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-06-05T21:25:29+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CuongBeos</title><subtitle>Don't have anything !
+</subtitle><author><name>CuongBeos</name></author><entry><title type="html">Practical Malware Analysis Lab 01</title><link href="http://localhost:4000/2019/04/07/Practical-Malware-Analysis.html" rel="alternate" type="text/html" title="Practical Malware Analysis Lab 01" /><published>2019-04-07T00:00:00+07:00</published><updated>2019-04-07T00:00:00+07:00</updated><id>http://localhost:4000/2019/04/07/Practical-Malware-Analysis</id><content type="html" xml:base="http://localhost:4000/2019/04/07/Practical-Malware-Analysis.html">&lt;h2 id=&quot;i-giới-thiệu&quot;&gt;I. Giới thiệu&lt;/h2&gt;
+&lt;p&gt;Ở chương 1, cuốn sách Practical Malware Analysis sẽ nói về các kỹ thuật Basic Static Analysis và Basic Dynamic Analysis. Phần 1 thì mình sẽ tập trung chủ yếu vào Basic Static Analysis và thực hiện các bài lab 01.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mikesiko/PracticalMalwareAnalysis-Labs&quot;&gt;Link tải lab&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ii-bài-tập&quot;&gt;II. Bài tập&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Lab 1-1&lt;/strong&gt;: Lab01-01.exe , Lab01-01.dll&lt;/p&gt;
+
+&lt;h4 id=&quot;1-upload-the-files-to-virustotal-and-view-the-reports-does-either-file-match-any-existing-antivirus-signatures&quot;&gt;&lt;strong&gt;1. Upload the files to VirusTotal and view the reports. Does either file match any existing antivirus signatures?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Chúng ta sẽ phải upload 2 file là &lt;strong&gt;Lab01-01.exe&lt;/strong&gt; và &lt;strong&gt;Lab01-01.dll&lt;/strong&gt; lên trang VirusTotal. Đây là 1 trang web chuyên kiểm tra các file có phải độc hại hay không bằng cách sử dụng các engines của các công ty phần mềm bảo mật như CMC, Bkav, Kaspersky, …
+Thông qua đó, chúng ta có thể biết được rằng file chúng ta upload có an toàn hay không, nếu không thì nó là malicious loại gì ? Hành vi của nó ra sao ? Và nhiều thông tin khác.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IgNk8pc.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/YlXDOi9.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-when-were-these-files-compiled&quot;&gt;&lt;strong&gt;2. When were these files compiled?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Y7OnvC9.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/d89Ts4o.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Thông qua mục &lt;strong&gt;Details&lt;/strong&gt;, ta biết được thời gian mà 2 file được compile. Tại sao ta phải cần xem xét thông tin này ? Từ dữ kiện này, ta có thể phỏng đoán được 2 file cùng từ 1 gói mà ra, khoảng thời gian file &lt;strong&gt;exe&lt;/strong&gt; được compile sau đó là đến file &lt;strong&gt;.dll&lt;/strong&gt; rất gần nhau, điều đó có thể cho ta biết rằng file &lt;strong&gt;.exe&lt;/strong&gt; sẽ sử dụng hoặc cài đặt file &lt;strong&gt;.dll&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-are-there-any-indications-that-either-of-these-files-is-packed-or-obfuscated-if-so-what-are-these-indicators&quot;&gt;&lt;strong&gt;3. Are there any indications that either of these files is packed or obfuscated? If so, what are these indicators?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/8IJimzK.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/vK6YAJS.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;File Lab01-01.exe được compile bởi Microsoft Visual C++, và Lab01-01.dll được compile bởi Microsoft Visual C++ DLL, và 2 file này không &lt;strong&gt;packed&lt;/strong&gt; hoặc &lt;strong&gt;obfuscated&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-do-any-imports-hint-at-what-this-malware-does-if-so-which-imports-are-they&quot;&gt;&lt;strong&gt;4. Do any imports hint at what this malware does? If so, which imports are they?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Uppdzj8.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IFvL82r.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;5-are-there-any-other-files-or-host-based-indicators-that-you-could-look-for-on-infected-systems&quot;&gt;&lt;strong&gt;5. Are there any other files or host-based indicators that you could look for on infected systems?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/2rZ6rm1.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Có thể đường dẫn đến thưc mục Systems trong Windows: &lt;strong&gt;&lt;em&gt;C:\Windows\system32\kerne132.dll&lt;/em&gt;&lt;/strong&gt;. &lt;strong&gt;Kernel32.dll&lt;/strong&gt; là file xử lý việc sử dụng bộ nhớ trong Windows, đây là một trong những file rất quan trọng trong hệ thống. Ta nhìn thấy ở trên, file này được fake bằng file &lt;strong&gt;kerne132.dll&lt;/strong&gt;, chỉ cần 1 thay đổi nhỏ giữa chứ &lt;strong&gt;&lt;em&gt;l&lt;/em&gt;&lt;/strong&gt; và số &lt;strong&gt;&lt;em&gt;1&lt;/em&gt;&lt;/strong&gt; đã có thể đánh lừa người dùng. Đường dẫn này được xuất hiện ở khi phân tích file &lt;strong&gt;Lab01-01.exe&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;6what-network-based-indicators-could-be-used-to-find-this-malware-on-infected-machines&quot;&gt;&lt;strong&gt;6.What network-based indicators could be used to find this malware on infected machines?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Trong mục &lt;strong&gt;SECTION.DATA&lt;/strong&gt; của file Lab01-01.dll, ta có thể thấy được địa chỉ IP: &lt;strong&gt;127.26.152.13&lt;/strong&gt;,
+địa chỉ này có thể là địa chỉ của máy tấn công, thông tin sẽ được gửi đến đây. Thực tế, nó sẽ là một địa chỉ mạng ngoài chứ không phải là loal.&lt;/p&gt;
+
+&lt;h4 id=&quot;7what-would-you-guess-is-the-purpose-of-these-files&quot;&gt;&lt;strong&gt;7.What would you guess is the purpose of these files?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Khi thực thi file &lt;strong&gt;Lab01-01.exe&lt;/strong&gt;, nó sẽ tiến hành sử dụng file &lt;strong&gt;Lab01-01.dll&lt;/strong&gt;. Trong file &lt;strong&gt;.dll&lt;/strong&gt;, có import các thư viện liên quan đến &lt;strong&gt;socket&lt;/strong&gt; : &lt;strong&gt;WS2_32.dll&lt;/strong&gt;. Kèm với dữ kiện ở câu 6, ta có thể suy đoán chương trình này sẽ tạo một socket trên máy nạn nhân kết nói kẻ tấn công, còn gọi là kiểu mã độc &lt;strong&gt;backdoor&lt;/strong&gt;, sau khi tạo kết nối xong, kẻ tân công có thể kiểm soát, lấy thông tin từ máy nạn nhân.&lt;/p&gt;
+
+&lt;h2 id=&quot;iii-kết-luận&quot;&gt;III. Kết luận&lt;/h2&gt;
+&lt;p&gt;Vì đây là lab khởi đầu nên ta chưa cần thiết phải đi sâu vào việc phân xem backdoor đó sẽ có những hoạt động gì ? Bài lab này chỉ là phần hướng dẫn mở đầu cho bạn đọc biết hướng phân tích như thế nào bằng cách trả lời các câu hỏi, ta có thể áp dụng phương pháp phân tích này cho các bài lab sau, rồi từ đó cải thiện kỹ năng phân tích của mình.&lt;/p&gt;
+
+&lt;p&gt;Thanks &amp;amp; Best regrads!&lt;/p&gt;</content><author><name>CuongBeos</name></author><category term="tutorial" /><category term="malware" /><category term="analysis" /><summary type="html">I. Giới thiệu Ở chương 1, cuốn sách Practical Malware Analysis sẽ nói về các kỹ thuật Basic Static Analysis và Basic Dynamic Analysis. Phần 1 thì mình sẽ tập trung chủ yếu vào Basic Static Analysis và thực hiện các bài lab 01.</summary></entry></feed>

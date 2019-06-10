@@ -1,0 +1,39 @@
+title: CuongBeos
+author: CuongBeos
+url: https://hqcthunders.github.io
+email: hqcthunders.ks.is@gmail.com
+description: > # this means to ignore newlines until "show_exerpts:"
+  Don't have anything !
+show_excerpts: false # set to true to show excerpts on the homepage
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+tag_permalink_style: pretty
+tag_page_layout: tag_page
+tag_page_dir: tag
+
+# jekyll-dash date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+dash:
+  date_format: "%b %-d, %Y"
+
+  disqus:
+    shortname: https-hqcthunders-github-io
+
+  # generate social links in footer
+  # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
+  social_links:
+    - url: https://github.com/hqcthunders
+      icon: github-square
+      color: purple
+
+# Build settings
+theme: jekyll-dash
+
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
+ - jekyll-paginate
+ - liquid-md5
+ - jekyll/tagging
